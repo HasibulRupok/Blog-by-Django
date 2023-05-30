@@ -1,0 +1,50 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="en">   
+<head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.5.0/semantic.min.css"
+            integrity="sha512-KXol4x3sVoO+8ZsWPFI/r5KBVB/ssCGB5tsv2nVOKwLg33wTFP3fmnXa47FdSVIshVTgsYk/1734xSk9aFIa4A=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="{% static 'css/main.css' %}">
+
+        {% block toplink %}
+        {% endblock %}
+
+        <title>Home</title>
+    </head>
+
+    <body>
+        <div class="ui secondary  menu">
+            <a class="active item" href="{% url 'blog-home' %}">
+                Home
+            </a>
+            <a class="item" href="/blog/about">
+                About
+            </a>
+            <a class="item" href="{% url 'blog-logout' %}">
+                Logout
+            </a>
+            <a class="item" href="{% url 'blog-post' %}">
+                Post
+            </a>
+        </div>
+
+
+        <h1>Welcome to Our Blog Website</h1>
+        <hr>
+
+        {% block content %}
+
+        {% endblock %}
+
+
+        <br>
+        <hr>
+        <Footer align="center">Contact:hasibulrupok@gmail.com</Footer>
+    </body>
+
+</html>

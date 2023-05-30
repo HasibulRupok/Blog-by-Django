@@ -1,0 +1,23 @@
+{% extends 'html/base.html' %}
+
+{% block content %}
+    <h2>Post a Blog</h2>
+
+    <form class="ui form" method="POST" accept="{% url 'blog-post' %}" enctype="multipart/form-data">
+        <!-- this tocken helps to stop D-dos attack by generating new tocken everytime -->
+        {% csrf_token %} 
+        <div class="field">
+            <label>Post Title</label>
+            <input type="text" name="title" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Post Text</label>
+            <textarea name="text" id="" cols="50" rows="10" placeholder="write something"></textarea>
+        </div>
+        <div class="field">
+            <label>Post Image</label>
+            <input type="file" name="post_image" id="">
+        </div>
+        <button class="ui button" type="submit">Post</button>
+    </form>
+{% endblock %}

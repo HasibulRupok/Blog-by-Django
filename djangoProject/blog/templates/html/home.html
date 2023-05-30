@@ -1,0 +1,28 @@
+{% extends 'html/base.html' %}
+
+{% load static %}
+{% block toplink %}
+    <script src="{% static 'js/demo.js' %}"></script>
+    <!-- java script is working -->
+{% endblock %}
+
+{% block content %}
+    <h1>Blog Home</h1>
+    {% for post in posts %}
+        <h2>Post Title: {{ post.title }}</h2>
+
+        {% if post.post_image %}
+            <img src="{{ post.post_image.url }}" alt="" height="250" width="500">
+        {% endif %}
+
+        <h3>Post Text: {{ post.text }}</h3>
+        <p>Written by: {{ post.author }}</p>
+        <p><small>Posted on {{ post.date_posted }}</small></p>
+        <button><a href="{% url 'blog-delete' post.id %}">Delete</a></button>
+        <button><a href="{% url 'blog-edit' post.id %}">Edit</a></button>
+        <hr>
+
+        <!-- this is called Zinja templatge  -->
+    {% endfor %}
+
+{% endblock %}
